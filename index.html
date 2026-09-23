@@ -862,12 +862,13 @@ a.live-item:hover .live-title { text-decoration: underline; text-underline-offse
       <h2 class="contact-h reveal">ご依頼・<br><em>お問い合わせ</em></h2>
       <p class="contact-p reveal">演奏会・レコーディング・レッスン、<br>その他のお問い合わせはこちらから<br>お気軽にどうぞ。</p>
     </div>
-    <form class="cform reveal" onsubmit="return false;">
+    <form class="cform reveal" action="https://formspree.io/f/xaenjved" method="POST">
       <div class="field"><label>お名前</label><input type="text" placeholder="山田 太郎"></div>
       <div class="field"><label>メールアドレス</label><input type="email" placeholder="example@email.com"></div>
       <div class="field"><label>件名</label><input type="text" placeholder="演奏会のご依頼"></div>
       <div class="field"><label>メッセージ</label><textarea placeholder="ご依頼・お問い合わせの内容をお書きください。"></textarea></div>
       <button class="sbtn" type="submit">送信する</button>
+      <p class="form-success" id="form-success" style="display:none; font-family:'DM Mono',monospace; font-size:0.62rem; letter-spacing:0.15em; color:rgba(255,255,255,0.6); margin-top:16px;">送信しました。ありがとうございます。</p>
     </form>
   </div>
 </section>
@@ -907,6 +908,24 @@ document.querySelectorAll('.yt-card').forEach(card => {
     card.appendChild(iframe);
   });
 });
+
+// Formspree ajax submit
+const form = document.querySelector('.cform');
+if (form) {
+  form.addEventListener('submit', async function(e) {
+    e.preventDefault();
+    const data = new FormData(form);
+    const res = await fetch(form.action, {
+      method: 'POST',
+      body: data,
+      headers: { 'Accept': 'application/json' }
+    });
+    if (res.ok) {
+      form.reset();
+      document.getElementById('form-success').style.display = 'block';
+    }
+  });
+}
 </script>
 </body>
 </html>

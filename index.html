@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>芦田かんな</title>
+<title>芦田かんな — Vibraphonist</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Noto+Serif+JP:wght@200;300;400&family=DM+Mono:ital@0;1&family=Shippori+Mincho:wght@400;500&display=swap" rel="stylesheet">
 <style>
@@ -707,6 +707,29 @@ a.live-item:hover .live-title { text-decoration: underline; text-underline-offse
     <div class="sec-rule"></div>
   </div>
 
+  <!-- ============================================================
+    【UPCOMING】次回公演
+    ・href="..." → 公演ページのURL（なければ # のまま）
+    ・luc-date    → 日付
+    ・luc-title   → 公演タイトル
+    ・luc-subtitle → サブタイトル（不要なら行ごと削除）
+    ・luc-venue   → 会場名
+    ・luc-details の <li> → 開演時間・料金・定員など
+    ・luc-flyer の src → チラシ画像（Base64 or ファイルパス）
+    ============================================================ -->
+  <!-- ============================================================
+    【UPCOMING】次回公演
+    表示される公演は1件です。開催が終わったら下の【PAST】に移してください。
+
+    各項目の説明：
+    ・href="..."         → 公演の詳細ページURL
+    ・luc-date           → 日付（例：2026.06.13 (Sat) / 06.14 (Sun)）
+    ・luc-title          → 公演タイトル
+    ・luc-subtitle       → サブタイトル（不要なら行ごと削除）
+    ・luc-venue          → 会場名
+    ・luc-details の li  → 開演時間・料金・定員など（行を増減してOK）
+    ・luc-flyer の src   → チラシ画像（Base64。不要なら行ごと削除）
+    ============================================================ -->
   <p class="live-section-label reveal">Upcoming</p>
 
   <a class="live-upcoming-card reveal" href="https://rohmtheatrekyoto.jp/event/143683/" target="_blank" rel="noopener">
@@ -729,8 +752,88 @@ a.live-item:hover .live-title { text-decoration: underline; text-underline-offse
     </div>
   </a>
 
+  <!-- ============================================================
+    【PAST】過去の公演リスト（新しい順）
+    コピー用テンプレート↓（使うときはコメントを外す）
+
+    リンクあり：
+    <a class="live-item live-past reveal" href="URL" target="_blank" rel="noopener">
+      <span class="live-date">YYYY.MM</span>
+      <div>
+        <p class="live-title">公演タイトル</p>
+        <p class="live-venue">会場名</p>
+      </div>
+      <span class="live-tag">Recital</span>
+    </a>
+
+    リンクなし：
+    <div class="live-item live-past reveal">
+      <span class="live-date">YYYY.MM</span>
+      <div>
+        <p class="live-title">公演タイトル</p>
+        <p class="live-venue">会場名</p>
+      </div>
+      <span class="live-tag">Recital</span>
+    </div>
+
+    【live-tag の種類】
+    Recital / Duo Recital / Ensemble / Orchestra / Festival / Premiere / Performance
+    ============================================================ -->
+  <!-- ============================================================
+    【UPCOMING テンプレート】
+    新しい公演を追加するときはこれをコピーして上のUpcomingカードと差し替えてください。
+
+    <a class="live-upcoming-card reveal" href="URL" target="_blank" rel="noopener">
+      <img class="luc-flyer" src="チラシ画像のBase64またはファイルパス" alt="チラシ">
+      <div class="luc-left">
+        <span class="luc-date">日付</span>
+        <h3 class="luc-title">タイトル</h3>
+        <p class="luc-subtitle">サブタイトル</p>
+        <p class="luc-venue">会場名</p>
+        <ul class="luc-details">
+          <li>開演時間</li>
+          <li>料金</li>
+          <li>定員・備考</li>
+        </ul>
+      </div>
+      <div class="luc-right">
+        <span class="luc-tag">Recital</span>
+        <span class="luc-arrow">→</span>
+      </div>
+    </a>
+    ============================================================ -->
+
+  <!-- ============================================================
+    【PAST】過去の公演リスト（新しい順）
+    公演が終わったらUpcomingからここに移してください。
+    リンクなしの場合は <a ...> を <div> に、</a> を </div> に変えてください。
+
+    【PAST テンプレート（リンクあり）】
+    <a class="live-item live-past reveal" href="URL" target="_blank" rel="noopener">
+      <span class="live-date">YYYY.MM</span>
+      <div>
+        <p class="live-title">公演タイトル</p>
+        <p class="live-venue">会場名</p>
+      </div>
+      <span class="live-tag">Recital</span>
+    </a>
+
+    【PAST テンプレート（リンクなし）】
+    <div class="live-item live-past reveal">
+      <span class="live-date">YYYY.MM</span>
+      <div>
+        <p class="live-title">公演タイトル</p>
+        <p class="live-venue">会場名</p>
+      </div>
+      <span class="live-tag">Recital</span>
+    </div>
+
+    【live-tag の種類】
+    Recital / Duo Recital / Ensemble / Orchestra / Festival / Premiere / Performance
+    ============================================================ -->
   <p class="live-section-label reveal" style="margin-top:64px;">Past</p>
 
+  <!-- 2026 -->
   <a class="live-item live-past reveal" href="https://www.city.kameoka.kyoto.jp/soshiki/12/83683.html" target="_blank" rel="noopener">
     <span class="live-date">2026.03.22</span>
     <div>
@@ -750,6 +853,7 @@ a.live-item:hover .live-title { text-decoration: underline; text-underline-offse
     <span class="live-tag">Premiere</span>
   </a>
 
+  <!-- 2025 -->
   <a class="live-item live-past reveal" href="https://teket.jp/14430/51605" target="_blank" rel="noopener">
     <span class="live-date">2025.11</span>
     <div>
@@ -786,6 +890,7 @@ a.live-item:hover .live-title { text-decoration: underline; text-underline-offse
     <span class="live-tag">Recital</span>
   </a>
 
+  <!-- 2024 -->
   <a class="live-item live-past reveal" href="https://toritomokai.zaiko.io/post/press" target="_blank" rel="noopener">
     <span class="live-date">2024.08</span>
     <div>
@@ -795,6 +900,7 @@ a.live-item:hover .live-title { text-decoration: underline; text-underline-offse
     <span class="live-tag">Performance</span>
   </a>
 
+  <!-- 2023 -->
   <a class="live-item live-past reveal" href="https://www.kac.or.jp/events/%E8%B0%B7%E5%8F%A3%E3%81%8B%E3%82%93%E3%81%AA%E3%83%95%E3%82%A1%E3%83%BC%E3%82%B9%E3%83%88%E3%82%BD%E3%83%AD%E3%83%AA%E3%82%B5%E3%82%A4%E3%82%BF%E3%83%AB-vib/" target="_blank" rel="noopener">
     <span class="live-date">2023.09</span>
     <div>
@@ -822,6 +928,7 @@ a.live-item:hover .live-title { text-decoration: underline; text-underline-offse
     <span class="live-tag">Premiere</span>
   </a>
 
+  <!-- 2022 -->
   <a class="live-item live-past reveal" href="https://www.kcua.ac.jp/20221013_vibraphone/" target="_blank" rel="noopener">
     <span class="live-date">2022.11</span>
     <div>
@@ -840,6 +947,7 @@ a.live-item:hover .live-title { text-decoration: underline; text-underline-offse
     <span class="live-tag">Orchestra</span>
   </a>
 
+  <!-- 2020 -->
   <a class="live-item live-past reveal" href="https://www.iamas.ac.jp/miwafest/" target="_blank" rel="noopener">
     <span class="live-date">2020.02</span>
     <div>

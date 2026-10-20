@@ -400,6 +400,85 @@ a.live-item:hover .live-title { text-decoration: underline; text-underline-offse
 .live-past:hover .live-venue,
 .live-past:hover .live-tag { opacity: 1; }
 
+/* Past accordion */
+.past-accordion { margin-top: 32px; }
+.past-year { border-top: 1px solid var(--line); }
+.past-year:last-child { border-bottom: 1px solid var(--line); }
+.past-year-head {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 18px 0;
+  cursor: pointer;
+  list-style: none;
+  user-select: none;
+}
+.past-year-head::-webkit-details-marker { display: none; }
+.past-year-head::after {
+  content: '+';
+  margin-left: auto;
+  font-family: 'DM Mono', monospace;
+  font-size: 1rem;
+  color: var(--muted);
+  transition: transform 0.2s;
+}
+details[open] > .past-year-head::after { content: '−'; }
+.past-year-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.25rem;
+  font-weight: 300;
+  letter-spacing: 0.1em;
+}
+.past-year-count {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.65rem;
+  color: var(--muted);
+  letter-spacing: 0.1em;
+}
+.past-year-list {
+  list-style: none;
+  padding: 0 0 20px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+.past-item {
+  display: grid;
+  grid-template-columns: 100px 1fr;
+  gap: 16px;
+  align-items: baseline;
+  padding: 10px 0;
+  border-top: 1px solid var(--line);
+  text-decoration: none;
+  color: inherit;
+}
+a.past-item:hover .past-title { text-decoration: underline; text-underline-offset: 3px; }
+.past-date {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.65rem;
+  letter-spacing: 0.05em;
+  color: var(--muted);
+  white-space: nowrap;
+}
+.past-info { display: flex; flex-direction: column; gap: 2px; }
+.past-title {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 0.85rem;
+  font-weight: 300;
+  line-height: 1.5;
+}
+.past-venue {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.62rem;
+  color: var(--muted);
+  letter-spacing: 0.05em;
+}
+@media(max-width:600px){
+  .past-item { grid-template-columns: 80px 1fr; gap: 10px; }
+  .past-date { font-size: 0.6rem; }
+  .past-title { font-size: 0.8rem; }
+}
+
 @media(max-width:900px){
   nav { padding:20px 24px; }
   .nav-links { gap:20px; }
@@ -839,130 +918,498 @@ a.live-item:hover .live-title { text-decoration: underline; text-underline-offse
     ============================================================ -->
   <p class="live-section-label reveal" style="margin-top:64px;">Past</p>
 
-  <!-- 2026 -->
-  <a class="live-item live-past reveal" href="https://www.city.kameoka.kyoto.jp/soshiki/12/83683.html" target="_blank" rel="noopener">
-    <span class="live-date">2026.03.22</span>
-    <div>
-      <p class="live-title">真福寺椿コンサート2026</p>
-      <p class="live-venue">真福寺（亀岡市）</p>
-    </div>
-    <span class="live-tag">Recital</span>
-  </a>
-
-
-  <a class="live-item live-past reveal" href="https://www.ycam.jp/events/2026/chronograffiti/" target="_blank" rel="noopener">
-    <span class="live-date">2026.02</span>
-    <div>
-      <p class="live-title">Chronograffiti</p>
-      <p class="live-venue">山口情報芸術センター YCAM スタジオA／日野浩志郎 新作コンサートピース</p>
-    </div>
-    <span class="live-tag">Premiere</span>
-  </a>
-
-  <!-- 2025 -->
-  <a class="live-item live-past reveal" href="https://teket.jp/14430/51605" target="_blank" rel="noopener">
-    <span class="live-date">2025.11</span>
-    <div>
-      <p class="live-title">Re: シェーンベルク Vol. 1（新訳）「浄められた夜」</p>
-      <p class="live-venue">京都ゲーテ・インスティトゥート・ヴィラ鴨川　多目的ホール</p>
-    </div>
-    <span class="live-tag">Ensemble</span>
-  </a>
-
-  <a class="live-item live-past reveal" href="https://www.mbs.jp/otobutai/stage/2025/" target="_blank" rel="noopener">
-    <span class="live-date">2025.09</span>
-    <div>
-      <p class="live-title">OTOBUTAI 2025 DIGOJI</p>
-      <p class="live-venue">総本山 醍醐寺（京都）／原摩利彦 Ensemble 参加</p>
-    </div>
-    <span class="live-tag">Ensemble</span>
-  </a>
-
-  <a class="live-item live-past reveal" href="https://fb.me/e/a9lw89bl4" target="_blank" rel="noopener">
-    <span class="live-date">2025.07</span>
-    <div>
-      <p class="live-title">「Memories」谷口かんな ヴィブラフォン ソロリサイタル vol.2</p>
-      <p class="live-venue">紫明会館</p>
-    </div>
-    <span class="live-tag">Recital</span>
-  </a>
-
-  <a class="live-item live-past reveal" href="https://www.shirasagi-art.net/2025/04/01/%e3%80%8cvib-%e3%80%8din-kanazawa/" target="_blank" rel="noopener">
-    <span class="live-date">2025.04</span>
-    <div>
-      <p class="live-title">谷口かんな ヴィブラフォン ソロリサイタル 金沢編「vib.」</p>
-      <p class="live-venue">白鷺美術（金沢）</p>
-    </div>
-    <span class="live-tag">Recital</span>
-  </a>
-
-  <!-- 2024 -->
-  <a class="live-item live-past reveal" href="https://toritomokai.zaiko.io/post/press" target="_blank" rel="noopener">
-    <span class="live-date">2024.08</span>
-    <div>
-      <p class="live-title">歌と逆に。歌に。</p>
-      <p class="live-venue">クリエイティブセンター大阪</p>
-    </div>
-    <span class="live-tag">Performance</span>
-  </a>
-
-  <!-- 2023 -->
-  <a class="live-item live-past reveal" href="https://www.kac.or.jp/events/%E8%B0%B7%E5%8F%A3%E3%81%8B%E3%82%93%E3%81%AA%E3%83%95%E3%82%A1%E3%83%BC%E3%82%B9%E3%83%88%E3%82%BD%E3%83%AD%E3%83%AA%E3%82%B5%E3%82%A4%E3%82%BF%E3%83%AB-vib/" target="_blank" rel="noopener">
-    <span class="live-date">2023.09</span>
-    <div>
-      <p class="live-title">谷口かんな ファーストソロリサイタル「vib.」</p>
-      <p class="live-venue">京都芸術センター（京都芸術センターと共催）／三輪眞弘、竹村延和ら5名の委嘱初演</p>
-    </div>
-    <span class="live-tag">Recital</span>
-  </a>
-
-  <a class="live-item live-past reveal" href="https://www.suntory.co.jp/suntoryhall/feature/summer2023/" target="_blank" rel="noopener">
-    <span class="live-date">2023.08</span>
-    <div>
-      <p class="live-title">サントリーホール サマーフェスティバル2023</p>
-      <p class="live-venue">サントリーホール（東京）／ザ・プロデューサー・シリーズ「三輪眞弘がひらく ありえるかもしれない、ガムラン」</p>
-    </div>
-    <span class="live-tag">Festival</span>
-  </a>
-
-  <a class="live-item live-past reveal" href="https://rohmtheatrekyoto.jp/event/103404/" target="_blank" rel="noopener">
-    <span class="live-date">2023.06</span>
-    <div>
-      <p class="live-title">sound around 003</p>
-      <p class="live-venue">ロームシアター京都／日野浩志郎 コラボレーター「Phase Transition」初演</p>
-    </div>
-    <span class="live-tag">Premiere</span>
-  </a>
-
-  <!-- 2022 -->
-  <a class="live-item live-past reveal" href="https://www.kcua.ac.jp/20221013_vibraphone/" target="_blank" rel="noopener">
-    <span class="live-date">2022.11</span>
-    <div>
-      <p class="live-title">空飛ぶヴィブラフォン</p>
-      <p class="live-venue">會田瑞樹 × 谷口かんな ヴィブラフォンデュオリサイタル／全作新作初演</p>
-    </div>
-    <span class="live-tag">Duo Recital</span>
-  </a>
-
-  <a class="live-item live-past reveal" href="http://www.orch-proj.net/2022/index1.html" target="_blank" rel="noopener">
-    <span class="live-date">2022.10</span>
-    <div>
-      <p class="live-title">オーケストラ・プロジェクト2022</p>
-      <p class="live-venue">東京フィルハーモニー交響楽団と共演／山内雅弘作曲《SPANDA Ⅱ》ヴィブラフォン協奏曲 初演</p>
-    </div>
-    <span class="live-tag">Orchestra</span>
-  </a>
-
-  <!-- 2020 -->
-  <a class="live-item live-past reveal" href="https://www.iamas.ac.jp/miwafest/" target="_blank" rel="noopener">
-    <span class="live-date">2020.02</span>
-    <div>
-      <p class="live-title">ぎふ未来音楽展2020 三輪眞弘祭 —清められた夜—</p>
-      <p class="live-venue">サラマンカホール（岐阜）</p>
-    </div>
-    <span class="live-tag">Festival</span>
-  </a>
-</section>
+  <div class="past-accordion reveal">
+  <details class="past-year" open>
+    <summary class="past-year-head"><span class="past-year-num">2026</span><span class="past-year-count">8</span></summary>
+    <ul class="past-year-list">
+      <li><a class="past-item" href="https://www.instagram.com/_gqunq/p/DX85vVcmTqc/" target="_blank" rel="noopener">
+        <span class="past-date">2026</span>
+        <span class="past-info">
+          <span class="past-title">INC. PERCUSSION DAYS 2026 SAGAMIKO</span>
+          <span class="past-venue">記載なし(相模湖) / 神奈川・相模湖</span>
+        </span>
+      </a></li>
+      <li><a class="past-item" href="https://www.instagram.com/_gqunq/p/Dd9H0F6GQyK/" target="_blank" rel="noopener">
+        <span class="past-date">2026.11.14</span>
+        <span class="past-info">
+          <span class="past-title">Re:シェーンベルク Vol.2(新訳)室内交響曲第1番+モートン・フェルドマン生誕100年記念</span>
+          <span class="past-venue">ゲーテ・インスティトゥート・ヴィラ鴨川 多目的ホール / 京都</span>
+        </span>
+      </a></li>
+      <li><a class="past-item" href="https://www.instagram.com/_gqunq/p/DcBemASGUrO/" target="_blank" rel="noopener">
+        <span class="past-date">2026.10.31</span>
+        <span class="past-info">
+          <span class="past-title">第30回京都の秋 音楽祭「結の空間」山本和智 作曲個展</span>
+          <span class="past-venue">京都コンサートホール アンサンブルホールムラタ / 京都</span>
+        </span>
+      </a></li>
+      <li><a class="past-item" href="https://www.instagram.com/_gqunq/p/DcBdQTCIkqH/" target="_blank" rel="noopener">
+        <span class="past-date">2026.09.11</span>
+        <span class="past-info">
+          <span class="past-title">布谷史人マリンバアンサンブルWS&コンサート〜マリンバの響き〜</span>
+          <span class="past-venue">昭和文化小劇場 / 名古屋</span>
+        </span>
+      </a></li>
+      <li><a class="past-item" href="https://www.instagram.com/shuto.todoroki/p/DZhrjAFCP0Z/" target="_blank" rel="noopener">
+        <span class="past-date">2026.08.01</span>
+        <span class="past-info">
+          <span class="past-title">轟修杜の画から感じる即興演奏会 Vol.3</span>
+          <span class="past-venue">仁和寺 白書院 / 京都</span>
+        </span>
+      </a></li>
+      <li><a class="past-item" href="https://www.instagram.com/_gqunq/p/DYMMfFLGU1B/" target="_blank" rel="noopener">
+        <span class="past-date">2026.06.13</span>
+        <span class="past-info">
+          <span class="past-title">Sound Around 006『Weavings|おること』</span>
+          <span class="past-venue">ロームシアター京都 ノースホール / 京都</span>
+        </span>
+      </a></li>
+      <li><a class="past-item" href="https://www.instagram.com/_gqunq/p/DT0TXQCD8zK/" target="_blank" rel="noopener">
+        <span class="past-date">2026.03.22</span>
+        <span class="past-info">
+          <span class="past-title">真福寺椿コンサート2026 ヴィブラフォンで楽しむ、名曲コンサート</span>
+          <span class="past-venue">真福寺 / 京都・亀岡</span>
+        </span>
+      </a></li>
+      <li><a class="past-item" href="https://www.instagram.com/_gqunq/p/DU2moJ-jzH4/" target="_blank" rel="noopener">
+        <span class="past-date">2026.02.21</span>
+        <span class="past-info">
+          <span class="past-title">日野浩志郎 新作コンサートピース Chronograffiti</span>
+          <span class="past-venue">山口情報芸術センター[YCAM] スタジオA / 山口</span>
+        </span>
+      </a></li>
+    </ul>
+  </details>
+  <details class="past-year">
+    <summary class="past-year-head"><span class="past-year-num">2025</span><span class="past-year-count">10</span></summary>
+    <ul class="past-year-list">
+      <li><a class="past-item" href="https://www.instagram.com/_gqunq/p/DMZe7SkRNNj/" target="_blank" rel="noopener">
+        <span class="past-date">2025</span>
+        <span class="past-info">
+          <span class="past-title">Moers Festival「Chronograffiti」世界初演</span>
+          <span class="past-venue">Moers Festival / ドイツ・メールス</span>
+        </span>
+      </a></li>
+      <li><a class="past-item" href="https://www.instagram.com/_gqunq/p/DSjLi2RDxtO/" target="_blank" rel="noopener">
+        <span class="past-date">2025</span>
+        <span class="past-info">
+          <span class="past-title">OTOBUTAI(音舞台)2025 醍醐寺</span>
+          <span class="past-venue">醍醐寺 / 京都</span>
+        </span>
+      </a></li>
+      <li><a class="past-item" href="https://www.instagram.com/_gqunq/p/DQoypfvj-oj/" target="_blank" rel="noopener">
+        <span class="past-date">2025.11.15</span>
+        <span class="past-info">
+          <span class="past-title">Re:シェーンベルク Vol.1 新訳『浄められた夜』</span>
+          <span class="past-venue">ゲーテ・インスティトゥート・ヴィラ鴨川 多目的ホール / 京都</span>
+        </span>
+      </a></li>
+      <li><a class="past-item" href="https://www.instagram.com/_gqunq/p/DMtywfUPZE1/" target="_blank" rel="noopener">
+        <span class="past-date">2025.08.08</span>
+        <span class="past-info">
+          <span class="past-title">「SHUTOOOからきこえるおと」画から感じる即興演奏会</span>
+          <span class="past-venue">仁和寺 黒書院 / 京都</span>
+        </span>
+      </a></li>
+      <li><a class="past-item" href="https://www.instagram.com/_gqunq/p/DMrAeAMT1FD/" target="_blank" rel="noopener">
+        <span class="past-date">2025.07.25</span>
+        <span class="past-info">
+          <span class="past-title">新作音楽公演「Chronograffiti」大阪公演(日本初演)</span>
+          <span class="past-venue">クリエイティブセンター大阪 Black Chamber / 大阪</span>
+        </span>
+      </a></li>
+      <li><a class="past-item" href="https://www.instagram.com/_gqunq/p/DLzG27hxlgt/" target="_blank" rel="noopener">
+        <span class="past-date">2025.07.11</span>
+        <span class="past-info">
+          <span class="past-title">「Memories」谷口かんな ヴィブラフォン ソロリサイタル vol.2</span>
+          <span class="past-venue">紫明会館 / 京都</span>
+        </span>
+      </a></li>
+      <li><a class="past-item" href="https://www.instagram.com/_gqunq/p/DKvzgDrRuGP/" target="_blank" rel="noopener">
+        <span class="past-date">2025.06.15</span>
+        <span class="past-info">
+          <span class="past-title">高瀬川サウンドモニタリング(「高瀬川モニタリング部のつくり方」クロージングパーティー)</span>
+          <span class="past-venue">堀川新文化ビルヂング NEUTRAL / 京都</span>
+        </span>
+      </a></li>
+      <li><a class="past-item" href="https://www.instagram.com/_gqunq/p/DJYJtJuR4OD/" target="_blank" rel="noopener">
+        <span class="past-date">2025.05.31</span>
+        <span class="past-info">
+          <span class="past-title">第65回現代音楽作品の夕べ</span>
+          <span class="past-venue">トントレフ・ヒコ</span>
+        </span>
+      </a></li>
+      <li><a class="past-item" href="https://www.instagram.com/_gqunq/p/DJYJtJuR4OD/" target="_blank" rel="noopener">
+        <span class="past-date">2025.05.18</span>
+        <span class="past-info">
+          <span class="past-title">マイケル・マーフィー打楽器リサイタル</span>
+          <span class="past-venue">フィガロホール / 滋賀・大津</span>
+        </span>
+      </a></li>
+      <li><a class="past-item" href="https://www.instagram.com/_gqunq/p/DFX76U7yI3n/" target="_blank" rel="noopener">
+        <span class="past-date">2025.04.25</span>
+        <span class="past-info">
+          <span class="past-title">「vib.」in Kanazawa 谷口かんな ヴィブラフォン ソロリサイタル 金沢編</span>
+          <span class="past-venue">shirasagi 1F(白鷺美術) / 金沢</span>
+        </span>
+      </a></li>
+    </ul>
+  </details>
+  <details class="past-year">
+    <summary class="past-year-head"><span class="past-year-num">2024</span><span class="past-year-count">5</span></summary>
+    <ul class="past-year-list">
+      <li><a class="past-item" href="https://www.instagram.com/_gqunq/p/DDo8z25yq6f/" target="_blank" rel="noopener">
+        <span class="past-date">2024</span>
+        <span class="past-info">
+          <span class="past-title">ベートーヴェン「第九」演奏会</span>
+          <span class="past-venue">岸和田 波切ホール / 大阪・岸和田</span>
+        </span>
+      </a></li>
+      <li><a class="past-item" href="https://www.instagram.com/_gqunq/p/DC_AzMdSlv2/" target="_blank" rel="noopener">
+        <span class="past-date">2024.11.04</span>
+        <span class="past-info">
+          <span class="past-title">「清流の国ぎふ」文化祭2024 DX時代のメディア表現</span>
+          <span class="past-venue">IAMAS附属図書館 / 岐阜・大垣</span>
+        </span>
+      </a></li>
+      <li><a class="past-item" href="https://www.instagram.com/_gqunq/p/DBY9VoEyjzR/" target="_blank" rel="noopener">
+        <span class="past-date">2024.10.27</span>
+        <span class="past-info">
+          <span class="past-title">第14回茨木新作音楽展(2日目)</span>
+          <span class="past-venue">茨木市市民総合センター(クリエイトセンター) センターホール / 大阪・茨木</span>
+        </span>
+      </a></li>
+      <li><a class="past-item" href="https://www.instagram.com/_gqunq/p/DAgUjiGygaA/" target="_blank" rel="noopener">
+        <span class="past-date">2024.10.05</span>
+        <span class="past-info">
+          <span class="past-title">地べた音楽祭2024</span>
+          <span class="past-venue">狛江駅前・えきまえ広場 / 東京・狛江</span>
+        </span>
+      </a></li>
+      <li><a class="past-item" href="https://www.instagram.com/_gqunq/p/C-Sms-Oy7ot/" target="_blank" rel="noopener">
+        <span class="past-date">2024.08.16</span>
+        <span class="past-info">
+          <span class="past-title">新作音楽公演「歌と逆に。歌に。」</span>
+          <span class="past-venue">クリエイティブセンター大阪 Black Chamber / 大阪</span>
+        </span>
+      </a></li>
+    </ul>
+  </details>
+  <details class="past-year">
+    <summary class="past-year-head"><span class="past-year-num">2023</span><span class="past-year-count">10</span></summary>
+    <ul class="past-year-list">
+      <li><a class="past-item" href="https://www.instagram.com/_gqunq/p/C_QJFI4y-FA/" target="_blank" rel="noopener">
+        <span class="past-date">2023.11.22</span>
+        <span class="past-info">
+          <span class="past-title">「vib.」谷口かんなファーストソロリサイタル(KACパートナーシップ・プログラム2023)</span>
+          <span class="past-venue">京都芸術センター 講堂 / 京都</span>
+        </span>
+      </a></li>
+      <li><a class="past-item" href="https://www.instagram.com/_gqunq/p/CwRdzQFSxDh/" target="_blank" rel="noopener">
+        <span class="past-date">2023.08.25</span>
+        <span class="past-info">
+          <span class="past-title">サントリーホール サマーフェスティバル2023「三輪眞弘がひらく ありえるかもしれない、ガムラン」</span>
+          <span class="past-venue">サントリーホール 大ホール/ブルーローズ / 東京</span>
+        </span>
+      </a></li>
+      <li><a class="past-item" href="https://www.instagram.com/_gqunq/p/CvNJpKtSCnP/" target="_blank" rel="noopener">
+        <span class="past-date">2023.07.28</span>
+        <span class="past-info">
+          <span class="past-title">《本だとしても》公演</span>
+          <span class="past-venue">theca(コ本や honkbooks内) / 東京・新宿</span>
+        </span>
+      </a></li>
+      <li><a class="past-item" href="https://www.instagram.com/_gqunq/p/Ct_QV5zSKuP/" target="_blank" rel="noopener">
+        <span class="past-date">2023.07.01</span>
+        <span class="past-info">
+          <span class="past-title">Kyoto Music Caravan 2023「ありがとう沓掛キャンパスコンサート」</span>
+          <span class="past-venue">京都市立芸術大学 講堂(沓掛) / 京都</span>
+        </span>
+      </a></li>
+      <li><a class="past-item" href="https://www.instagram.com/_gqunq/reel/Cr03Ep2sOpD/" target="_blank" rel="noopener">
+        <span class="past-date">2023.06.24</span>
+        <span class="past-info">
+          <span class="past-title">Sound Around 003</span>
+          <span class="past-venue">ロームシアター京都 ノースホール / 京都</span>
+        </span>
+      </a></li>
+      <li><a class="past-item" href="https://www.instagram.com/_gqunq/p/Ctg663wypz9/" target="_blank" rel="noopener">
+        <span class="past-date">2023.06.16</span>
+        <span class="past-info">
+          <span class="past-title">Stefan Schneider 来日公演</span>
+          <span class="past-venue">ライブハウス外 / 京都</span>
+        </span>
+      </a></li>
+      <li><a class="past-item" href="https://www.instagram.com/_gqunq/p/Cpm8hLTShC1/" target="_blank" rel="noopener">
+        <span class="past-date">2023.03.12</span>
+        <span class="past-info">
+          <span class="past-title">高瀬川モニタリング部 報告会vol.3 ささやかな音楽会(投げ銭制)</span>
+          <span class="past-venue">高瀬川・四季Air / 京都</span>
+        </span>
+      </a></li>
+      <li><a class="past-item" href="https://www.instagram.com/_gqunq/p/CopRV5Fvu2P/" target="_blank" rel="noopener">
+        <span class="past-date">2023.02.16</span>
+        <span class="past-info">
+          <span class="past-title">地点『騒音。見ているのに見えない。見えなくても見ている!』</span>
+          <span class="past-venue">KAAT神奈川芸術劇場 大スタジオ / 横浜</span>
+        </span>
+      </a></li>
+      <li><a class="past-item" href="https://www.instagram.com/_gqunq/p/C0Hk1wDy7rE/" target="_blank" rel="noopener">
+        <span class="past-date">2023.01.20</span>
+        <span class="past-info">
+          <span class="past-title">桒原幹治 修了制作《Play Works》</span>
+          <span class="past-venue">記載なし</span>
+        </span>
+      </a></li>
+      <li><a class="past-item" href="https://www.instagram.com/_gqunq/p/Cm6MZ2nSXdW/" target="_blank" rel="noopener">
+        <span class="past-date">2023.01.08</span>
+        <span class="past-info">
+          <span class="past-title">ベルエポックの詩 Poésie de la Belle Epoque</span>
+          <span class="past-venue">ロームシアター京都 サウスホール / 京都</span>
+        </span>
+      </a></li>
+    </ul>
+  </details>
+  <details class="past-year">
+    <summary class="past-year-head"><span class="past-year-num">2022</span><span class="past-year-count">15</span></summary>
+    <ul class="past-year-list">
+      <li><a class="past-item" href="https://www.instagram.com/_gqunq/p/CeQ5ZQvPpBX/" target="_blank" rel="noopener">
+        <span class="past-date">2022</span>
+        <span class="past-info">
+          <span class="past-title">葉加瀬太郎オーケストラコンサート(西日本公演)</span>
+          <span class="past-venue">記載なし / 西日本各地</span>
+        </span>
+      </a></li>
+      <li><a class="past-item" href="https://www.instagram.com/_gqunq/p/CeQ50ruPnG3/" target="_blank" rel="noopener">
+        <span class="past-date">2022</span>
+        <span class="past-info">
+          <span class="past-title">秋吉台国際芸術村主催 ガムラン公演『花のみち』〜マルガサリの秋吉台〜</span>
+          <span class="past-venue">秋吉台国際芸術村 / 山口</span>
+        </span>
+      </a></li>
+      <li><a class="past-item" href="https://www.instagram.com/_gqunq/p/ClWbLd5y2eW/" target="_blank" rel="noopener">
+        <span class="past-date">2022.12.04</span>
+        <span class="past-info">
+          <span class="past-title">京都室内合奏団「Time, Zeit, Temps」</span>
+          <span class="past-venue">アートスペース二条城前 Alba / 京都</span>
+        </span>
+      </a></li>
+      <li><a class="past-item" href="https://www.instagram.com/_gqunq/p/Ck-l9XayuMh/" target="_blank" rel="noopener">
+        <span class="past-date">2022.11.20</span>
+        <span class="past-info">
+          <span class="past-title">押し入れライブ 2022 霜月</span>
+          <span class="past-venue">いい貸家 / 東京・狛江</span>
+        </span>
+      </a></li>
+      <li><a class="past-item" href="https://www.instagram.com/_gqunq/p/ClV05QaSD0H/" target="_blank" rel="noopener">
+        <span class="past-date">2022.11.18</span>
+        <span class="past-info">
+          <span class="past-title">「FOOTPRINTS」vol.47</span>
+          <span class="past-venue">Double Tall Art & Espresso Bar / 東京・日本橋</span>
+        </span>
+      </a></li>
+      <li><a class="past-item" href="https://www.instagram.com/_gqunq/p/ClVvAs6ysSW/" target="_blank" rel="noopener">
+        <span class="past-date">2022.11.17</span>
+        <span class="past-info">
+          <span class="past-title">オーケストラ・プロジェクト2022</span>
+          <span class="past-venue">東京オペラシティ コンサートホール / 東京</span>
+        </span>
+      </a></li>
+      <li><a class="past-item" href="https://www.instagram.com/_gqunq/p/Cieu7JlvkLL/" target="_blank" rel="noopener">
+        <span class="past-date">2022.10.13</span>
+        <span class="past-info">
+          <span class="past-title">會田瑞樹・谷口かんな ヴィブラフォンデュオリサイタル 〜空飛ぶヴィブラフォン〜</span>
+          <span class="past-venue">京都文化博物館 別館ホール / 京都</span>
+        </span>
+      </a></li>
+      <li><a class="past-item" href="https://www.instagram.com/_gqunq/p/Cieu7JlvkLL/" target="_blank" rel="noopener">
+        <span class="past-date">2022.10.12</span>
+        <span class="past-info">
+          <span class="past-title">空飛ぶヴィブラフォン プレコンサート</span>
+          <span class="past-venue">京都文化博物館 別館ホール / 京都</span>
+        </span>
+      </a></li>
+      <li><a class="past-item" href="https://www.instagram.com/_gqunq/p/Cikg2HyPhD-/" target="_blank" rel="noopener">
+        <span class="past-date">2022.10.01</span>
+        <span class="past-info">
+          <span class="past-title">地べた音楽祭2022</span>
+          <span class="past-venue">狛江駅えきまえ広場 / 東京・狛江</span>
+        </span>
+      </a></li>
+      <li><a class="past-item" href="https://www.instagram.com/_gqunq/p/CiCmwykLKjg/" target="_blank" rel="noopener">
+        <span class="past-date">2022.09.11</span>
+        <span class="past-info">
+          <span class="past-title">マルガサリ 第2回定期公演 花のみちvol.2</span>
+          <span class="past-venue">京都芸術センター フリースペース / 京都</span>
+        </span>
+      </a></li>
+      <li><a class="past-item" href="https://www.instagram.com/_gqunq/p/ChWgFQRvuwl/" target="_blank" rel="noopener">
+        <span class="past-date">2022.08.19</span>
+        <span class="past-info">
+          <span class="past-title">劇団三毛猫座 第七回本公演『くじらの昇る海底』</span>
+          <span class="past-venue">THEATRE E9 KYOTO / 京都</span>
+        </span>
+      </a></li>
+      <li><a class="past-item" href="https://www.instagram.com/_gqunq/p/Cf4dlAnP4Vp/" target="_blank" rel="noopener">
+        <span class="past-date">2022.08.13</span>
+        <span class="past-info">
+          <span class="past-title">アンサンブルさいさい vol.3 〜Contemporary music for percussion ensembles〜</span>
+          <span class="past-venue">京都文化博物館 別館ホール / 京都</span>
+        </span>
+      </a></li>
+      <li><a class="past-item" href="https://www.instagram.com/_gqunq/p/CgNthfxvTrU/" target="_blank" rel="noopener">
+        <span class="past-date">2022.07.30</span>
+        <span class="past-info">
+          <span class="past-title">高瀬川モニタリング部 報告会 夏 演奏会(投げ銭制)</span>
+          <span class="past-venue">高瀬川・四季Air / 京都</span>
+        </span>
+      </a></li>
+      <li><a class="past-item" href="https://www.instagram.com/_gqunq/p/CahHQ4JvFfe/" target="_blank" rel="noopener">
+        <span class="past-date">2022.02.26</span>
+        <span class="past-info">
+          <span class="past-title">即興ライブ</span>
+          <span class="past-venue">moxy kyoto nijo / 京都</span>
+        </span>
+      </a></li>
+      <li><a class="past-item" href="https://www.instagram.com/_gqunq/p/CYeXiTJvHli/" target="_blank" rel="noopener">
+        <span class="past-date">2022.02.14</span>
+        <span class="past-info">
+          <span class="past-title">會田瑞樹自作自演によるリサイタル 書いて奏でて響かせて</span>
+          <span class="past-venue">トーキョーコンサーツ・ラボ / 東京</span>
+        </span>
+      </a></li>
+    </ul>
+  </details>
+  <details class="past-year">
+    <summary class="past-year-head"><span class="past-year-num">2021</span><span class="past-year-count">8</span></summary>
+    <ul class="past-year-list">
+      <li><a class="past-item" href="https://www.instagram.com/_gqunq/p/CS5QmOFB-b2/" target="_blank" rel="noopener">
+        <span class="past-date">2021</span>
+        <span class="past-info">
+          <span class="past-title">葉加瀬太郎オーケストラコンサート</span>
+          <span class="past-venue">記載なし(名古屋・広島・京都・大阪) / 名古屋/広島/京都/大阪</span>
+        </span>
+      </a></li>
+      <li><a class="past-item" href="https://www.instagram.com/_gqunq/p/CX6BOtIvLJ4/" target="_blank" rel="noopener">
+        <span class="past-date">2021.12.31</span>
+        <span class="past-info">
+          <span class="past-title">京都室内合奏団 第4回定期演奏会 ジルベスターコンサート 古都の新風</span>
+          <span class="past-venue">ロームシアター京都 サウスホール / 京都</span>
+        </span>
+      </a></li>
+      <li><a class="past-item" href="https://www.instagram.com/_gqunq/p/CWev2nZPM0f/" target="_blank" rel="noopener">
+        <span class="past-date">2021.12.24</span>
+        <span class="past-info">
+          <span class="past-title">京都室内合奏団 第3回定期演奏会 2つの物語《マ・メール・ロワと火の鳥》</span>
+          <span class="past-venue">京都文化博物館 別館ホール / 京都</span>
+        </span>
+      </a></li>
+      <li><a class="past-item" href="https://www.instagram.com/_gqunq/p/CWUtK2Cv31l/" target="_blank" rel="noopener">
+        <span class="past-date">2021.11.30</span>
+        <span class="past-info">
+          <span class="past-title">Asia〜音楽の脈動〜(現代音楽フェスティバル)</span>
+          <span class="past-venue">北とぴあ つつじホール / 東京</span>
+        </span>
+      </a></li>
+      <li><a class="past-item" href="https://www.instagram.com/_gqunq/p/CVedNosPCGU/" target="_blank" rel="noopener">
+        <span class="past-date">2021.10.30</span>
+        <span class="past-info">
+          <span class="past-title">會田瑞樹 ヴィブラフォンソロリサイタル 2021 〜夢幻泡影〜</span>
+          <span class="past-venue">かなっくホール / 横浜</span>
+        </span>
+      </a></li>
+      <li><a class="past-item" href="https://www.instagram.com/_gqunq/p/CSofUBvB0Xr/" target="_blank" rel="noopener">
+        <span class="past-date">2021.09.05</span>
+        <span class="past-info">
+          <span class="past-title">マルガサリ 定期公演 花のみち Vol.1</span>
+          <span class="past-venue">ロームシアター京都 ノースホール / 京都</span>
+        </span>
+      </a></li>
+      <li><a class="past-item" href="https://www.instagram.com/_gqunq/p/CSBimxGHjFK/" target="_blank" rel="noopener">
+        <span class="past-date">2021.08.14</span>
+        <span class="past-info">
+          <span class="past-title">アンサンブルさいさい 打楽器アンサンブルコンサート vol.2 vibraphone生誕100周年記念 會田瑞樹氏を迎えて</span>
+          <span class="past-venue">京都文化博物館 別館ホール / 京都</span>
+        </span>
+      </a></li>
+      <li><a class="past-item" href="https://www.instagram.com/_gqunq/p/CLmBltOl4D_/" target="_blank" rel="noopener">
+        <span class="past-date">2021.02.23</span>
+        <span class="past-info">
+          <span class="past-title">IAMAS2021『マルガサリ特別公演』(オンライン配信)</span>
+          <span class="past-venue">オンライン(IAMAS) / 岐阜・大垣</span>
+        </span>
+      </a></li>
+    </ul>
+  </details>
+  <details class="past-year">
+    <summary class="past-year-head"><span class="past-year-num">2020</span><span class="past-year-count">9</span></summary>
+    <ul class="past-year-list">
+      <li><a class="past-item" href="https://www.instagram.com/_gqunq/p/CGUqjnMl4kr/" target="_blank" rel="noopener">
+        <span class="past-date">2020</span>
+        <span class="past-info">
+          <span class="past-title">三輪眞弘祭(無料生配信)</span>
+          <span class="past-venue">サラマンカホール / 岐阜</span>
+        </span>
+      </a></li>
+      <li><a class="past-item" href="https://www.instagram.com/_gqunq/p/CJAo5GIlQBA/" target="_blank" rel="noopener">
+        <span class="past-date">2020.12.27</span>
+        <span class="past-info">
+          <span class="past-title">京都室内合奏団 コンサート(第1回定期演奏会)</span>
+          <span class="past-venue">堀川音楽高校ホール / 京都</span>
+        </span>
+      </a></li>
+      <li><a class="past-item" href="https://www.instagram.com/_gqunq/p/CIA1TU8paWc/" target="_blank" rel="noopener">
+        <span class="past-date">2020.11.30</span>
+        <span class="past-info">
+          <span class="past-title">B→C バッハからコンテンポラリーへ 221 會田瑞樹(パーカッション)</span>
+          <span class="past-venue">東京オペラシティ リサイタルホール / 東京</span>
+        </span>
+      </a></li>
+      <li><a class="past-item" href="https://www.instagram.com/_gqunq/p/CIGSvBDp2mi/" target="_blank" rel="noopener">
+        <span class="past-date">2020.11.28</span>
+        <span class="past-info">
+          <span class="past-title">B→C 會田瑞樹パーカッションリサイタル 仙台公演</span>
+          <span class="past-venue">PaToNaシアター(宮城野区文化センター) / 仙台</span>
+        </span>
+      </a></li>
+      <li><a class="past-item" href="https://www.instagram.com/_gqunq/reel/CRtwJNqFbFg/" target="_blank" rel="noopener">
+        <span class="past-date">2020.11.15</span>
+        <span class="past-info">
+          <span class="past-title">アンサンブルグループさいさい「Re:concert」</span>
+          <span class="past-venue">アートスペースHase / 京都</span>
+        </span>
+      </a></li>
+      <li><a class="past-item" href="https://www.instagram.com/_gqunq/p/CGz1YwuJcC0/" target="_blank" rel="noopener">
+        <span class="past-date">2020.10.25</span>
+        <span class="past-info">
+          <span class="past-title">幻想音楽会「未知」(VOGA奉納舞台)</span>
+          <span class="past-venue">石清水八幡宮 / 京都・八幡</span>
+        </span>
+      </a></li>
+      <li><a class="past-item" href="https://www.instagram.com/_gqunq/reel/B9L4D4pJWn1/" target="_blank" rel="noopener">
+        <span class="past-date">2020.03.01</span>
+        <span class="past-info">
+          <span class="past-title">鴨川デルタでの即興演奏</span>
+          <span class="past-venue">鴨川デルタ(屋外) / 京都</span>
+        </span>
+      </a></li>
+      <li><a class="past-item" href="https://www.instagram.com/_gqunq/p/B8_DV9bJcet/" target="_blank" rel="noopener">
+        <span class="past-date">2020.02.24</span>
+        <span class="past-info">
+          <span class="past-title">POTLUCK PARTY「マイケル・マーフィー 谷口かんな DUO CONCERT」</span>
+          <span class="past-venue">アートスペースHase / 京都</span>
+        </span>
+      </a></li>
+      <li><a class="past-item" href="https://www.instagram.com/_gqunq/p/B7s48ENJMYi/" target="_blank" rel="noopener">
+        <span class="past-date">2020.02.11</span>
+        <span class="past-info">
+          <span class="past-title">「ヴィブラフォンのめっちゃあるところ」内ミニコンサート</span>
+          <span class="past-venue">U-HA味覚糖ホール / 大阪</span>
+        </span>
+      </a></li>
+    </ul>
+  </details>
+  </div></section>
 
 <!-- CONTACT -->
 <section id="contact" class="sec">

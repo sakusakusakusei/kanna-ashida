@@ -675,34 +675,31 @@ a.past-item:hover .past-title { text-decoration: underline; text-underline-offse
 /* ── CONCERT MODAL ── */
 .cmodal-overlay {
   position: fixed; inset: 0;
-  background: rgba(0,0,0,0.55);
-  backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(4px);
+  background: var(--bg);
   z-index: 1000;
-  display: flex; align-items: center; justify-content: center;
-  padding: 24px;
+  overflow-y: auto;
   opacity: 0; pointer-events: none;
-  transition: opacity 0.25s;
+  transition: opacity 0.3s;
 }
 .cmodal-overlay.open { opacity: 1; pointer-events: auto; }
 .cmodal {
-  background: var(--bg);
-  max-width: 560px; width: 100%;
-  max-height: 90vh;
-  overflow-y: auto;
-  padding: 48px 40px 40px;
+  min-height: 100vh;
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 80px 48px 100px;
   position: relative;
-  transform: translateY(16px);
-  transition: transform 0.25s;
+  transform: translateY(24px);
+  transition: transform 0.3s;
 }
 .cmodal-overlay.open .cmodal { transform: translateY(0); }
 .cmodal-close {
-  position: absolute; top: 16px; right: 20px;
+  position: fixed; top: 24px; right: 32px;
   background: none; border: none; cursor: pointer;
   font-family: 'DM Mono', monospace;
-  font-size: 0.7rem; letter-spacing: 0.15em;
+  font-size: 0.65rem; letter-spacing: 0.18em;
   color: var(--muted);
-  padding: 4px 8px;
+  padding: 6px 10px;
+  z-index: 1001;
 }
 .cmodal-close:hover { color: var(--text); }
 .cmodal-tag {
@@ -712,46 +709,46 @@ a.past-item:hover .past-title { text-decoration: underline; text-underline-offse
   border: 1px solid var(--line);
   padding: 4px 10px;
   display: inline-block;
-  margin-bottom: 20px;
+  margin-bottom: 32px;
 }
 .cmodal-date {
   font-family: 'DM Mono', monospace;
-  font-size: 0.62rem; letter-spacing: 0.18em;
+  font-size: 0.65rem; letter-spacing: 0.2em;
   color: var(--muted);
-  margin-bottom: 10px;
+  margin-bottom: 16px;
 }
 .cmodal-title {
   font-family: 'Noto Serif JP', serif;
-  font-size: clamp(1rem, 2vw, 1.3rem);
-  font-weight: 300; line-height: 1.55;
-  margin-bottom: 8px;
+  font-size: clamp(1.3rem, 3vw, 2rem);
+  font-weight: 300; line-height: 1.5;
+  margin-bottom: 10px;
 }
 .cmodal-subtitle {
   font-family: 'Cormorant Garamond', serif;
-  font-size: 0.95rem; font-style: italic; font-weight: 300;
-  color: #555; margin-bottom: 24px;
+  font-size: 1.1rem; font-style: italic; font-weight: 300;
+  color: #555; margin-bottom: 48px;
 }
 .cmodal-divider {
   border: none; border-top: 1px solid var(--line);
-  margin: 24px 0;
+  margin: 40px 0;
 }
 .cmodal-row {
-  display: grid; grid-template-columns: 56px 1fr;
-  gap: 6px 16px; align-items: baseline;
-  margin-bottom: 14px;
+  display: grid; grid-template-columns: 72px 1fr;
+  gap: 8px 24px; align-items: baseline;
+  margin-bottom: 20px;
 }
 .cmodal-label {
   font-family: 'DM Mono', monospace;
-  font-size: 0.48rem; letter-spacing: 0.2em; text-transform: uppercase;
-  color: var(--muted); padding-top: 2px;
+  font-size: 0.48rem; letter-spacing: 0.22em; text-transform: uppercase;
+  color: var(--muted); padding-top: 3px;
 }
 .cmodal-value {
   font-family: 'Noto Serif JP', serif;
-  font-size: 0.82rem; font-weight: 300; line-height: 1.6;
+  font-size: 0.9rem; font-weight: 300; line-height: 1.7;
 }
 .cmodal-actions {
-  margin-top: 32px;
-  display: flex; gap: 12px; flex-wrap: wrap;
+  margin-top: 48px;
+  display: flex; gap: 16px; flex-wrap: wrap;
 }
 .cmodal-btn {
   display: inline-flex; align-items: center; gap: 8px;
@@ -759,9 +756,9 @@ a.past-item:hover .past-title { text-decoration: underline; text-underline-offse
   font-size: 0.55rem; letter-spacing: 0.2em; text-transform: uppercase;
   color: var(--text);
   border: 1px solid var(--line);
-  padding: 10px 20px;
+  padding: 12px 24px;
   text-decoration: none;
-  transition: border-color 0.2s, color 0.2s;
+  transition: border-color 0.2s;
   cursor: pointer; background: none;
 }
 .cmodal-btn:hover { border-color: var(--text); }
@@ -793,8 +790,9 @@ button.live-upcoming-card {
 button.live-upcoming-card:hover { opacity: 0.75; }
 button.live-upcoming-card:hover .luc-arrow { color: var(--text); transform: translateX(6px); }
 @media(max-width:600px){
-  .cmodal { padding: 40px 24px 32px; }
-  .cmodal-row { grid-template-columns: 48px 1fr; }
+  .cmodal { padding: 64px 24px 80px; }
+  .cmodal-close { top: 16px; right: 20px; }
+  .cmodal-row { grid-template-columns: 56px 1fr; gap: 6px 16px; }
   button.past-item { grid-template-columns: 80px 1fr; gap: 10px; }
   button.live-upcoming-card { padding: 32px 0; grid-template-columns: 1fr; }
 }

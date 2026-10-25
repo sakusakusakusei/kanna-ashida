@@ -2009,25 +2009,20 @@ function openConcertModal(el) {
   document.body.style.overflow = 'hidden';
 }
 
-document.getElementById('concertModal').addEventListener('click', function(e) {
-  if (e.target === this || e.target.classList.contains('cmodal-close')) {
-    this.classList.remove('open');
-    document.body.style.overflow = '';
-  }
-});
+function closeConcertModal() {
+  document.getElementById('concertModal').classList.remove('open');
+  document.body.style.overflow = '';
+}
 
 document.addEventListener('keydown', function(e) {
-  if (e.key === 'Escape') {
-    document.getElementById('concertModal').classList.remove('open');
-    document.body.style.overflow = '';
-  }
+  if (e.key === 'Escape') closeConcertModal();
 });
 </script>
 
 <!-- Concert Modal -->
 <div id="concertModal" class="cmodal-overlay" role="dialog" aria-modal="true">
   <div class="cmodal">
-    <button class="cmodal-close" aria-label="閉じる">✕ close</button>
+    <button class="cmodal-close" aria-label="閉じる" onclick="closeConcertModal()">✕ close</button>
     <span class="cmodal-tag"></span>
     <p class="cmodal-date"></p>
     <h2 class="cmodal-title"></h2>

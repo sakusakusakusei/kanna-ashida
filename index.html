@@ -1994,13 +1994,51 @@ function openConcertModal(el) {
   if (d.venue) { venueVal.textContent = d.venue; venueRow.style.display = ''; }
   else { venueRow.style.display = 'none'; }
 
-  // details (Upcoming用: 「｜」区切り)
+  // details: 「｜」区切り、「【ラベル】値」形式で各行に振り分け
+  const sections = { info: [], ticket: [], access: [], organizer: [] };
+  if (d.details) {
+    let currentKey = 'info';
+    d.details.split('｜').forEach(s => {
+      const m2 = s.match(/^【(.+?)】(.*)$/);
+      if (m2) {
+        const label = m2[1]; const val = m2[2].trim();
+        if (/チケット料金|料金/.test(label)) { currentKey = 'ticket'; if (val) sections.ticket.push(val); }
+        else if (/チケット取扱|取扱|問い合わせ|アクセス/.test(label)) { currentKey = 'access'; if (val) sections.access.push(val); }
+        else if (/主催|共催|協賛|協力/.test(label)) { currentKey = 'organizer'; sections.organizer.push(`${label}：${val}`); }
+        else { currentKey = 'info'; if (val) sections.info.push(val); }
+      } else {
+        sections[currentKey].push(s);
+      }
+    });
+  }
+
   const detailsRow = m.querySelector('.cmodal-row.details-row');
   const detailsVal = m.querySelector('.cmodal-value.details-val');
-  if (d.details) {
-    detailsVal.innerHTML = d.details.split('｜').map(s => `<span>${s}</span>`).join('<br>');
+  if (sections.info.length) {
+    detailsVal.innerHTML = sections.info.map(s => `<span>${s}</span>`).join('<br>');
     detailsRow.style.display = '';
   } else { detailsRow.style.display = 'none'; }
+
+  const ticketRow = m.querySelector('.cmodal-row.ticket-row');
+  const ticketVal = m.querySelector('.cmodal-value.ticket-val');
+  if (sections.ticket.length) {
+    ticketVal.innerHTML = sections.ticket.map(s => `<span>${s}</span>`).join('<br>');
+    ticketRow.style.display = '';
+  } else { ticketRow.style.display = 'none'; }
+
+  const accessRow = m.querySelector('.cmodal-row.access-row');
+  const accessVal = m.querySelector('.cmodal-value.access-val');
+  if (sections.access.length) {
+    accessVal.innerHTML = sections.access.map(s => `<span>${s}</span>`).join('<br>');
+    accessRow.style.display = '';
+  } else { accessRow.style.display = 'none'; }
+
+  const organizerRow = m.querySelector('.cmodal-row.organizer-row');
+  const organizerVal = m.querySelector('.cmodal-value.organizer-val');
+  if (sections.organizer.length) {
+    organizerVal.innerHTML = sections.organizer.map(s => `<span>${s}</span>`).join('<br>');
+    organizerRow.style.display = '';
+  } else { organizerRow.style.display = 'none'; }
 
   // Instagram link
   const igBtn = m.querySelector('.cmodal-btn-ig');
@@ -2037,6 +2075,18 @@ document.addEventListener('keydown', function(e) {
     <div class="cmodal-row details-row">
       <span class="cmodal-label">Info</span>
       <span class="cmodal-value details-val"></span>
+    </div>
+    <div class="cmodal-row ticket-row">
+      <span class="cmodal-label">Ticket</span>
+      <span class="cmodal-value ticket-val"></span>
+    </div>
+    <div class="cmodal-row access-row">
+      <span class="cmodal-label">Access</span>
+      <span class="cmodal-value access-val"></span>
+    </div>
+    <div class="cmodal-row organizer-row">
+      <span class="cmodal-label">Organizer</span>
+      <span class="cmodal-value organizer-val"></span>
     </div>
     <div class="cmodal-actions">
       <a class="cmodal-btn cmodal-btn-ig" href="#" target="_blank" rel="noopener">

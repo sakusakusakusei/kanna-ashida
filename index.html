@@ -1995,13 +1995,44 @@ function openConcertModal(el) {
   if (d.venue) { venueVal.textContent = d.venue; venueRow.style.display = ''; }
   else { venueRow.style.display = 'none'; }
 
-  // details (Upcoming用: 「｜」区切り)
-  const detailsRow = m.querySelector('.cmodal-row.details-row');
-  const detailsVal = m.querySelector('.cmodal-value.details-val');
+  // details: 「｜」区切り、「【ラベル】」で各行に振り分け
+  const rowDefs = [
+    { key: 'info',      sel: '.details-row',   valSel: '.details-val'   },
+    { key: 'programA',  sel: '.programA-row',  valSel: '.programA-val'  },
+    { key: 'programB',  sel: '.programB-row',  valSel: '.programB-val'  },
+    { key: 'ticket',    sel: '.ticket-row',    valSel: '.ticket-val'    },
+    { key: 'access',    sel: '.access-row',    valSel: '.access-val'    },
+    { key: 'organizer', sel: '.organizer-row', valSel: '.organizer-val' },
+  ];
+  const sections = { info: [], programA: [], programB: [], ticket: [], access: [], organizer: [] };
   if (d.details) {
-    detailsVal.innerHTML = d.details.split('｜').map(s => `<span>${s}</span>`).join('<br>');
-    detailsRow.style.display = '';
-  } else { detailsRow.style.display = 'none'; }
+    let cur = 'info';
+    d.details.split('｜').forEach(s => {
+      const hd = s.match(/^【(.+?)】(.*)$/);
+      if (hd) {
+        const lbl = hd[1], val = hd[2].trim();
+        if (/^Program\s*A/i.test(lbl))               { cur = 'programA'; if (val) sections.programA.push(val); }
+        else if (/^Program\s*B/i.test(lbl))           { cur = 'programB'; if (val) sections.programB.push(val); }
+        else if (/チケット料金|料金/.test(lbl))         { cur = 'ticket';    if (val) sections.ticket.push(val); }
+        else if (/チケット取扱|取扱|問い合わせ/.test(lbl)) { cur = 'access';    if (val) sections.access.push(val); }
+        else if (/主催|共催|協賛|協力/.test(lbl))       { cur = 'organizer'; sections.organizer.push(`${lbl}：${val}`); }
+        else                                           { cur = 'info';      if (val) sections.info.push(`【${lbl}】${val}`); }
+      } else {
+        sections[cur].push(s);
+      }
+    });
+  }
+  rowDefs.forEach(({ key, sel, valSel }) => {
+    const row = m.querySelector(`.cmodal-row${sel}`);
+    const val = m.querySelector(`.cmodal-value${valSel}`);
+    if (!row || !val) return;
+    if (sections[key].length) {
+      val.innerHTML = sections[key].map(s => `<span>${s}</span>`).join('<br>');
+      row.style.display = '';
+    } else {
+      row.style.display = 'none';
+    }
+  });
 
   // Instagram link
   const igBtn = m.querySelector('.cmodal-btn-ig');
@@ -2038,6 +2069,26 @@ document.addEventListener('keydown', function(e) {
     <div class="cmodal-row details-row">
       <span class="cmodal-label">Info</span>
       <span class="cmodal-value details-val"></span>
+    </div>
+    <div class="cmodal-row programA-row">
+      <span class="cmodal-label">Program A</span>
+      <span class="cmodal-value programA-val"></span>
+    </div>
+    <div class="cmodal-row programB-row">
+      <span class="cmodal-label">Program B</span>
+      <span class="cmodal-value programB-val"></span>
+    </div>
+    <div class="cmodal-row ticket-row">
+      <span class="cmodal-label">Ticket</span>
+      <span class="cmodal-value ticket-val"></span>
+    </div>
+    <div class="cmodal-row access-row">
+      <span class="cmodal-label">Access</span>
+      <span class="cmodal-value access-val"></span>
+    </div>
+    <div class="cmodal-row organizer-row">
+      <span class="cmodal-label">Organizer</span>
+      <span class="cmodal-value organizer-val"></span>
     </div>
     <div class="cmodal-actions">
       <a class="cmodal-btn cmodal-btn-ig" href="#" target="_blank" rel="noopener">
